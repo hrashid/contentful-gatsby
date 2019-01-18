@@ -23,7 +23,6 @@ const BgImg = styled(Img)`
   }
   &::before {
     content: '';
-    background: rgba(0, 0, 0, 0.25);
     position: absolute;
     top: 0;
     left: 0;
@@ -55,7 +54,6 @@ const Hero = props => (
     <BgImg
       height={props.height}
       fluid={props.image.fluid}
-      backgroundColor={'#eeeeee'}
     />
     <Title>{props.title}</Title>
   </Wrapper>
