@@ -19,8 +19,7 @@ const Index = ({ data, pageContext }) => {
 
   const homepage = data.allContentfulPage.edges
   const homepagePost = homepage[0].node
-  console.log(homepagePost);
-
+  
   return (
     <Layout>
       <SEO />
@@ -31,7 +30,9 @@ const Index = ({ data, pageContext }) => {
       )}
 
       <Hero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />
-        
+      <section className="container">
+        <div dangerouslySetInnerHTML={{ __html: homepagePost.body.childMarkdownRemark.html }}/>
+      </section>
 
       <Container>
 
@@ -100,7 +101,6 @@ export const query = graphql`
           body {
             childMarkdownRemark {
               html
-              excerpt(pruneLength: 80)
             }
           }
         }
