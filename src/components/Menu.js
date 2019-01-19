@@ -38,6 +38,10 @@ const Nav = styled.nav`
       color: white;
     }
   }
+  img{
+    max-height:25px;
+    width:auto;
+  }
 `
 
 const activeLinkStyle = {
@@ -51,9 +55,10 @@ const Menu = () => {
         <ul>
           <li>
             <Link to="/" activeStyle={activeLinkStyle}>
-              Home
+              <img src="/logos/dj-zaki-los-angeles-logo.png" alt="DJ Zaki Los Angeles DJ"/>
             </Link>
           </li>
+                 
           <li>
             <Link to="/about/" activeStyle={activeLinkStyle}>
               About
@@ -64,6 +69,11 @@ const Menu = () => {
               Contact
             </Link>
           </li>
+          <li>
+            <a className="phone" href="tel:+13234511952">
+              (323) 451-1952 
+            </a>
+          </li> 
         </ul>
       </Nav>
     </Header>

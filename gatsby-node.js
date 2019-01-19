@@ -71,6 +71,73 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  const loadMixes = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulMixtape(
+          sort: { fields: [publishDate], order: DESC }
+          limit: 10000
+        ) {
+          edges {
+            node {
+              slug
+              publishDate
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const posts = result.data.allContentfulMixtape.edges
+      const postsPerFirstPage = config.postsPerHomePage
+      const postsPerPage = config.postsPerPage
+      const numPages = Math.ceil(
+        posts.slice(postsPerFirstPage).length / postsPerPage
+      )
+
+      // Create main home page
+      createPage({
+        path: `/mixes`,
+        component: path.resolve(`./src/templates/mixes.js`),
+        context: {
+          limit: postsPerFirstPage,
+          skip: 0,
+          numPages: numPages + 1,
+          currentPage: 1,
+        },
+      })
+
+      // Create additional pagination on home page if needed
+      Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+          path: `/mixes/${i + 2}/`,
+          component: path.resolve(`./src/templates/mixes.js`),
+          context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage + postsPerFirstPage,
+            numPages: numPages + 1,
+            currentPage: i + 2,
+          },
+        })
+      })
+
+      // Create each individual post
+      posts.forEach((edge, i) => {
+        const prev = i === 0 ? null : posts[i - 1].node
+        const next = i === posts.length - 1 ? null : posts[i + 1].node
+        createPage({
+          path: `/mixes/${edge.node.slug}/`,
+          component: path.resolve(`./src/templates/mix.js`),
+          context: {
+            slug: edge.node.slug,
+            prev,
+            next,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -138,5 +205,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages])
+  return Promise.all([loadPosts, loadTags, loadPages, loadMixes])
 }
