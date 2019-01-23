@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
+import Hero from '../components/Hero'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
@@ -9,7 +10,7 @@ import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
 
 const PageTemplate = ({ data }) => {
-  const { title, slug, body } = data.contentfulPage
+  const { title, slug, body, images } = data.contentfulPage
   const postNode = data.contentfulPage
 
   return (
@@ -19,8 +20,8 @@ const PageTemplate = ({ data }) => {
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} pageSEO />
 
+      <Hero title={`${title}`} image={images[0]} height={'25vh'} />
       <Container>
-        <PageTitle>{title}</PageTitle>
         <PageBody body={body} />
       </Container>
     </Layout>
@@ -35,6 +36,12 @@ export const query = graphql`
       metaDescription {
         internal {
           content
+        }
+      }
+      images {
+        title
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       body {

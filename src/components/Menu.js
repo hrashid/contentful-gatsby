@@ -60,12 +60,12 @@ const Menu = () => {
           </li>
                  
           <li>
-            <Link to="/about/" activeStyle={activeLinkStyle}>
+            <Link to="/los-angeles-dj" activeStyle={activeLinkStyle}>
               About
             </Link>
           </li>
           <li>
-            <Link to="/contact/" activeStyle={activeLinkStyle}>
+            <Link to="/contact" activeStyle={activeLinkStyle}>
               Contact
             </Link>
           </li>
