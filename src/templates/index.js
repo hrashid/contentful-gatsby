@@ -48,7 +48,7 @@ const Index = ({ data, pageContext }) => {
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
-    allContentfulPost(
+    allContentfulMixtape(
       sort: { fields: [publishDate], order: DESC }
       limit: $limit
       skip: $skip
@@ -90,32 +90,6 @@ export const query = graphql`
           body {
             childMarkdownRemark {
               html
-            }
-          }
-        }
-      }
-    }
-    allContentfulMixtape(
-      sort: { fields: [publishDate], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          title
-          id
-          slug
-          publishDate(formatString: "MMMM DD, YYYY")
-          heroImage {
-            title
-            fluid(maxWidth: 1800) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          body {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 80)
             }
           }
         }
