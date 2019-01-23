@@ -32,25 +32,12 @@ exports.createPages = ({ graphql, actions }) => {
         path: `/`,
         component: path.resolve(`./src/templates/index.js`),
         context: {
-          limit: postsPerFirstPage,
+          limit: 1,
           skip: 0,
-          numPages: numPages + 1,
+          //numPages: numPages + 1,
+          numPages: 1,
           currentPage: 1,
         },
-      })
-
-      // Create additional pagination on home page if needed
-      Array.from({ length: numPages }).forEach((_, i) => {
-        createPage({
-          path: `/${i + 2}/`,
-          component: path.resolve(`./src/templates/index.js`),
-          context: {
-            limit: postsPerPage,
-            skip: i * postsPerPage + postsPerFirstPage,
-            numPages: numPages + 1,
-            currentPage: i + 2,
-          },
-        })
       })
 
       // Create main News page
