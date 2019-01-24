@@ -15,22 +15,16 @@ import config from '../utils/siteConfig'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulMixtape.edges
-  const featuredPost = posts[0].node
-  const { currentPage } = pageContext
-  const isFirstPage = currentPage === 1
-
   const homepage = data.allContentfulPage.edges
   const homepagePost = homepage[0].node
   
   return (
     <Layout>
       <SEO />
-      {!isFirstPage && (
         <Helmet>
-          <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
+          <title>{config.siteTitle}</title>
         </Helmet>
-      )}
-
+        
       <Hero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />
       <PageBody body={homepagePost.body} />
       <Container>
@@ -47,11 +41,9 @@ const Index = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query {
     allContentfulMixtape(
       sort: { fields: [publishDate], order: DESC }
-      limit: $limit
-      skip: $skip
     ) {
       edges {
         node {

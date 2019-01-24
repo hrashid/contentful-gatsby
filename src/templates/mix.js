@@ -3,8 +3,10 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
+import MixEmbed from '../components/MixEmbed'
 import Hero from '../components/Hero'
 import Container from '../components/Container'
+import Tracklist from '../components/Tracklist'
 import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
@@ -19,6 +21,8 @@ const MixTemplate = ({ data, pageContext }) => {
     body,
     publishDate,
     tags,
+    mixcloudSlug,
+    tracklist,
   } = data.contentfulMixtape
   const postNode = data.contentfulMixtape
 
@@ -35,9 +39,10 @@ const MixTemplate = ({ data, pageContext }) => {
       <Hero title={title} image={heroImage} height={'50vh'} />
 
       <Container>
-        {tags && <TagList tags={tags} />}
-        <PostDate date={publishDate} />
+        <MixEmbed mixcloudSlug={mixcloudSlug}/>
         <PageBody body={body} />
+        <Tracklist tracklist={tracklist} />
+        {tags && <TagList tags={tags} />}
       </Container>
       <PostLinks previous={previous} next={next} />
     </Layout>
@@ -54,8 +59,7 @@ export const query = graphql`
           content
         }
       }
-      publishDate(formatString: "MMMM DD, YYYY")
-      publishDateISO: publishDate(formatString: "YYYY-MM-DD")
+      mixcloudSlug
       tags {
         title
         id
@@ -76,6 +80,11 @@ export const query = graphql`
         childMarkdownRemark {
           html
           excerpt(pruneLength: 320)
+        }
+      }
+      tracklist{
+        childMarkdownRemark {
+          html
         }
       } 
     }
