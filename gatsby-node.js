@@ -183,9 +183,9 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               slug: node.slug,
               limit: postsPerPage,
-              skip: i * postsPerPage,
-              numPages: numPages,
-              currentPage: i + 1,
+              skip: 0,
+              numPages: 1,
+              currentPage: 1,
             },
           })
         })
