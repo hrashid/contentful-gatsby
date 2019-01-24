@@ -5,8 +5,8 @@ module.exports = {
   siteDescription:
     'LA DJ Zaki is the best Los Angeles Wedding DJ in LA. Satisfaction is Guaranteed with this Los Angeles DJ service! DJ for Weddings, Birthdays, Anniversaries, Corporate Parties &amp; Events.',
   siteUrl: 'https://www.dj-zaki.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
-  postsPerHomePage: 7, // Number of posts shown on the 1st page of of the index.js template (home page)
-  postsPerPage: 6, // Number of posts shown on paginated pages
+  postsPerHomePage: 1, // Number of posts shown on the 1st page of of the index.js template (home page)
+  postsPerPage: 1, // Number of posts shown on paginated pages
   author: 'DJ Zaki', // Author for RSS author segment and SEO schema
   authorUrl: 'https://www.dj-zaki.com/los-angeles-dj/', // URL used for author and publisher schema, can be a social profile or other personal site
   userTwitter: '@dj__zaki', // Change for Twitter Cards
