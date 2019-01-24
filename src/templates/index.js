@@ -44,6 +44,7 @@ export const query = graphql`
   query {
     allContentfulMixtape(
       sort: { fields: [publishDate], order: DESC }
+      limit: 3
     ) {
       edges {
         node {

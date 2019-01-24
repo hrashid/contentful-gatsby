@@ -64,6 +64,19 @@ const Menu = () => {
               About
             </Link>
           </li>
+
+          <li>
+            <Link to="/mixes" activeStyle={activeLinkStyle}>
+              Mixes
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/news" activeStyle={activeLinkStyle}>
+              News
+            </Link>
+          </li>
+
           <li>
             <Link to="/contact" activeStyle={activeLinkStyle}>
               Contact

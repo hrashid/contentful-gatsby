@@ -163,6 +163,9 @@ exports.createPages = ({ graphql, actions }) => {
               post {
                 id
               }
+              mixtape{
+                id
+              }
             }
           }
         }

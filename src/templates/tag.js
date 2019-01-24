@@ -95,6 +95,25 @@ export const query = graphql`
           }
         }
       }
+      mixtape {
+        id
+        title
+        slug
+        publishDate(formatString: "MMMM DD, YYYY")
+        publishDateISO: publishDate(formatString: "YYYY-MM-DD")
+        heroImage {
+          title
+          fluid(maxWidth: 1800) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+          }
+        }
+        body {
+          childMarkdownRemark {
+            html
+            excerpt(pruneLength: 80)
+          }
+        }
+      }
     }
   }
 `
