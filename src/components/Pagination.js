@@ -56,7 +56,9 @@ class Pagination extends React.Component {
     const prevPageNum = currentPage - 1 === 1 ? `` : currentPage - 1
     const nextPageNum = currentPage + 1
 
-    const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : `${postType}`
+    //const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : `${postType}`
+    
+    const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : `/mixes/`
     const prevPageLink = isFirst ? null : `${pathPrefix}/${prevPageNum}/`
     const nextPageLink = isLast ? null : `${pathPrefix}/${nextPageNum}/`
 

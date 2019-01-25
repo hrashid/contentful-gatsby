@@ -17,14 +17,19 @@ const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulMixtape.edges
   const homepage = data.allContentfulPage.edges
   const homepagePost = homepage[0].node
-  
+
+  const featuredPost = posts[0].node
+  const { currentPage } = pageContext
+  const isFirstPage = currentPage === 1
+
   return (
     <Layout>
       <SEO />
-        <Helmet>
-          <title>{config.siteTitle}</title>
-        </Helmet>
-        
+        {!isFirstPage && (
+          <Helmet>
+            <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
+          </Helmet>
+        )}
       <Hero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />
       <PageBody body={homepagePost.body} />
       <Container>
@@ -41,10 +46,12 @@ const Index = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query {
+  query($skip: Int!) {
     allContentfulMixtape(
       sort: { fields: [publishDate], order: DESC }
       limit: 3
+      skip: $skip
+
     ) {
       edges {
         node {
