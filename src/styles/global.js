@@ -87,9 +87,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-    font-weight: 400;
-    font-family: Open Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    
+    font-weight: 200;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  h1, h2, h3, h4, h5, h6{
+    font-family: Oswald;
   }
 
   img {

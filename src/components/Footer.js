@@ -52,20 +52,36 @@ const Footer = () => (
           href="/sitemap"
         >
           Sitemap
-        </a>{' | Instagram: '}
+        </a>{' | '}
         <a
           href="https://twitter.com/dj__zaki"
           target="_blank"
           rel="noopener noreferrer"
         >
-          @dj__zaki
-        </a>{' | Twitter: '}
+          Twitter
+        </a>{' | '}
         <a
           href="https://instagram.com/d.j.zaki"
           target="_blank"
           rel="noopener noreferrer"
         >
-          @d.j.zaki
+          Instagram
+        </a>
+        {' | '}
+        <a
+          href="https://www.yelp.com/biz/los-angeles-dj-zaki-los-angeles"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Yelp
+        </a>
+        {' | '}
+        <a
+          href="https://goo.gl/maps/5D1BQPo2SPQ2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google
         </a>
       </Item>
     </List>
