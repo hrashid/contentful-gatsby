@@ -48,14 +48,18 @@ const Footer = () => (
         Copyright © 2019 DJ Zaki{' '}
       </Item>
       <Item>
-        
+        <a
+          href="/sitemap"
+        >
+          Sitemap
+        </a>{' | Instagram: '}
         <a
           href="https://twitter.com/dj__zaki"
           target="_blank"
           rel="noopener noreferrer"
         >
           @dj__zaki
-        </a>{' '}
+        </a>{' | Twitter: '}
         <a
           href="https://instagram.com/d.j.zaki"
           target="_blank"

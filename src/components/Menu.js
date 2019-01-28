@@ -82,11 +82,6 @@ const Menu = () => {
               Contact
             </Link>
           </li>
-          <li>
-            <a className="phone" href="tel:+13234511952">
-              (323) 451-1952 
-            </a>
-          </li> 
         </ul>
       </Nav>
     </Header>

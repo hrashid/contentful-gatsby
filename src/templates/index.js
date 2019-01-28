@@ -30,9 +30,9 @@ const Index = ({ data, pageContext }) => {
             <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
           </Helmet>
         )}
-      <Hero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />
-      <PageBody body={homepagePost.body} />
+      <Hero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />    
       <Container>
+        <PageBody body={homepagePost.body} />
         <CardList>
             {posts.map(({ node: post }) => (
               <Mix key={post.id} {...post} />
