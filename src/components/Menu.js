@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Header = styled.header`
   background: ${props => props.theme.colors.base};
   width: 100%;
-  padding: 1.5em 0;
+  padding: 1em 0;
 `
 const Nav = styled.nav`
   width: 100%;
@@ -21,6 +21,7 @@ const Nav = styled.nav`
   li {
     display: inline-block;
     margin-left: 1em;
+    line-height:30px;
     &:first-child {
       position: relative;
       margin: 0;
