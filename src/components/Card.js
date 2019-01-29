@@ -29,9 +29,9 @@ const Post = styled.li`
     text-decoration: none;
     .gatsby-image-wrapper {
       height: 0;
-      padding-bottom: 60%;
+      padding-bottom: 100%;
       @media screen and (min-width: ${props => props.theme.responsive.small}) {
-        padding-bottom: ${props => (props.featured ? '40%' : '60%')};
+        padding-bottom: ${props => (props.featured ? '60%' : '100%')};
       }
     }
   }

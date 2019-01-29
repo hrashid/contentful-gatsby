@@ -14,7 +14,7 @@ const Mixes = ({ data, pageContext }) => {
   const featuredPost = posts[0].node
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
-
+  
   return (
     <Layout>
       <SEO />

@@ -12,8 +12,19 @@ import Pagination from '../components/Pagination'
 import Container from '../components/Container'
 
 const TagTemplate = ({ data, pageContext }) => {
+
+  //Post Array
+  const ps = data.contentfulTag.post
+  
+  //Mixtape Arry
+  const mx = data.contentfulTag.mixtape
+
+  //Combining them into "both"
+  const bof = [...ps,...mx]
+  
+  //console.log(pageContext)
   const posts = orderBy(
-    data.contentfulTag.post,
+    ps,
     // eslint-disable-next-line
     [object => new moment(object.publishDateISO)],
     ['desc']
@@ -72,7 +83,9 @@ const TagTemplate = ({ data, pageContext }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    contentfulTag(slug: { eq: $slug }) {
+    contentfulTag(
+      slug: { eq: $slug }
+    ) {
       title
       id
       slug
