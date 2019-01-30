@@ -58,7 +58,6 @@ const Form = styled.form`
     visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
   }
 `
-
 const Name = styled.input`
   margin: 0 0 1em 0;
   width: 100%;
@@ -66,7 +65,6 @@ const Name = styled.input`
     width: 49%;
   }
 `
-
 const Email = styled.input`
   margin: 0 0 1em 0;
   width: 100%;
@@ -74,7 +72,20 @@ const Email = styled.input`
     width: 49%;
   }
 `
-
+const Date = styled.input`
+  margin: 0 0 1em 0;
+  width: 100%;
+  @media (min-width: ${props => props.theme.responsive.small}) {
+    width: 49%;
+  }
+`
+const Phone = styled.input`
+  margin: 0 0 1em 0;
+  width: 100%;
+  @media (min-width: ${props => props.theme.responsive.small}) {
+    width: 49%;
+  }
+`
 const Message = styled.textarea`
   width: 100%;
   margin: 0 0 1em 0;
@@ -82,7 +93,6 @@ const Message = styled.textarea`
   min-height: 250px;
   resize: vertical;
 `
-
 const Submit = styled.input`
   background: ${props => props.theme.colors.base} !important;
   color: white !important;
@@ -154,6 +164,8 @@ class ContactForm extends React.Component {
     this.state = {
       name: '',
       email: '',
+      phone: '',
+      date: '',
       message: '',
       showModal: false,
     }
@@ -223,6 +235,22 @@ class ContactForm extends React.Component {
           type="email"
           placeholder="Email"
           value={this.state.email}
+          onChange={this.handleInputChange}
+          required
+        />
+        <Phone
+          name="phone"
+          type="text"
+          placeholder="Phone Number"
+          value={this.state.phone}
+          onChange={this.handleInputChange}
+          required
+        />
+        <Date
+          name="date"
+          type="text"
+          placeholder="Date of Event"
+          value={this.state.date}
           onChange={this.handleInputChange}
           required
         />
