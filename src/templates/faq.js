@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import CardList from '../components/CardList'
-import Card from '../components/Card'
-import Mix from '../components/Mix'
+import FaqList from '../components/FaqList'
+import FaqCard from '../components/FaqCard'
 import Hero from '../components/Hero'
 import Helmet from 'react-helmet'
 import PageBody from '../components/PageBody'
@@ -13,46 +12,36 @@ import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 
-const Index = ({ data, pageContext }) => {
-  const posts = data.allContentfulMixtape.edges
+const Faq = ({ data, pageContext }) => {
+  const posts = data.allContentfulFaqs.edges
+  
   const homepage = data.allContentfulPage.edges
   const homepagePost = homepage[0].node
-
-  const featuredPost = posts[0].node
-  const { currentPage } = pageContext
-  const isFirstPage = currentPage === 1
-
-  console.log(homepagePost)
+  
   return (
     <Layout>
       <SEO />
-        {!isFirstPage && (
-          <Helmet>
-            <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
-          </Helmet>
-        )}
-      <Hero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />    
+        <Helmet>
+          <title>{`${config.siteTitle}`}</title>
+        </Helmet>
+      <Hero title="FAQ" image={homepagePost.images[0]} height={'25vh'} />
+      
       <Container>
-        <PageBody body={homepagePost.body} />
-        <CardList>
-            {posts.map(({ node: post }) => (
-              <Mix key={post.id} {...post} />
-            ))}
-          </CardList>
+        <FaqList>
+          {posts.map(({ node: post }) => (
+            <FaqCard key={post.id} {...post} />
+          ))}
+        </FaqList>
       </Container>
       
-    <GoogleMap />
     </Layout>
   )
 }
 
 export const query = graphql`
-  query($skip: Int!) {
-    allContentfulMixtape(
+  query {
+    allContentfulFaqs(
       sort: { fields: [publishDate], order: DESC }
-      limit: 3
-      skip: $skip
-
     ) {
       edges {
         node {
@@ -60,12 +49,6 @@ export const query = graphql`
           id
           slug
           publishDate(formatString: "MMMM DD, YYYY")
-          heroImage {
-            title
-            fluid(maxWidth: 1800) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
           body {
             childMarkdownRemark {
               html
@@ -99,4 +82,4 @@ export const query = graphql`
   }
 `
 
-export default Index
+export default Faq
