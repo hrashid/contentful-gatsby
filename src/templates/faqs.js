@@ -9,7 +9,15 @@ import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
+import styled from 'styled-components'
 import SEO from '../components/SEO'
+
+const Ques = styled.div`
+  margin: 0 auto 30px;
+  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  font-size:1.5em;
+  font-weight:600;
+`
 
 const FaqTemplate = ({ data, pageContext }) => {
   const {
@@ -34,6 +42,7 @@ const FaqTemplate = ({ data, pageContext }) => {
 
       <Hero title={title} image={heroImage} height={'10vh'} />
       <Container>
+        <Ques>{title}</Ques>
         <PageBody body={body} />
       </Container>
     </Layout>
