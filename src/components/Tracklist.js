@@ -9,8 +9,8 @@ const Body = styled.div`
     line-height: 30px;
     display: flex;
     font-size: 13px;
-    color: #697f95;
-    border-bottom: 1px solid #ebf0f2;
+    color:#777;
+    border-bottom: 1px solid #EEE;
 	}
 	.tracklist-table-row-number {
     width: 7%;

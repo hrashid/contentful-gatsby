@@ -10,6 +10,14 @@ import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
+import styled from 'styled-components'
+
+const PostTitle = styled.h1`
+  margin: 0 auto 30px;
+  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  font-size:1.5em;
+  font-weight:600;
+`
 
 const PostTemplate = ({ data, pageContext }) => {
   const {
@@ -32,12 +40,13 @@ const PostTemplate = ({ data, pageContext }) => {
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} postSEO />
 
-      <Hero title={title} image={heroImage} height={'50vh'} />
+      <Hero image={heroImage} height={'50vh'} />
 
       <Container>
-        {tags && <TagList tags={tags} />}
+        <PostTitle>{title}</PostTitle>
         <PostDate date={publishDate} />
         <PageBody body={body} />
+        {tags && <TagList tags={tags} />}
       </Container>
       <PostLinks previous={previous} next={next} />
     </Layout>
