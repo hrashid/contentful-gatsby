@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import moment from 'moment'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
-import Card from '../components/Card'
+import TagCard from '../components/TagCard'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
 import Pagination from '../components/Pagination'
@@ -24,7 +24,7 @@ const TagTemplate = ({ data, pageContext }) => {
   
   //console.log(pageContext)
   const posts = orderBy(
-    ps,
+    bof,
     // eslint-disable-next-line
     [object => new moment(object.publishDateISO)],
     ['desc']
@@ -36,7 +36,9 @@ const TagTemplate = ({ data, pageContext }) => {
   const limit = pageContext.limit
   const currentPage = pageContext.currentPage
   const isFirstPage = currentPage === 1
-
+  
+  //console.log(posts)
+  
   return (
     <Layout>
       {isFirstPage ? (
@@ -72,9 +74,10 @@ const TagTemplate = ({ data, pageContext }) => {
 
         <CardList>
           {posts.slice(skip, limit * currentPage).map(post => (
-            <Card {...post} key={post.id} />
+            <TagCard {...post} key={post.id} type={post.internal} />
           ))}
         </CardList>
+
       </Container>
       <Pagination context={pageContext} />
     </Layout>
@@ -101,6 +104,9 @@ export const query = graphql`
             ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
+        internal{
+          type
+        }
         body {
           childMarkdownRemark {
             html
@@ -119,6 +125,9 @@ export const query = graphql`
           fluid(maxWidth: 1800) {
             ...GatsbyContentfulFluid_withWebp_noBase64
           }
+        }
+        internal{
+          type
         }
         body {
           childMarkdownRemark {

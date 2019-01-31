@@ -240,7 +240,14 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create tag pages with pagination if needed
       tags.map(({ node }) => {
-        const totalPosts = node.post !== null ? node.post.length : 0
+        //const totalPosts = node.post !== null ? node.post.length : 0
+        
+        const comb = node.mixtape.length + node.post.length
+      
+        //const totalPosts = node.mixtape !== null ? node.mixtape.length : 0
+
+        const totalPosts = comb !== null ? comb : 0
+        
         const numPages = Math.ceil(totalPosts / postsPerPage)
         Array.from({ length: numPages }).forEach((_, i) => {
           createPage({

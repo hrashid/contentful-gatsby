@@ -54,11 +54,13 @@ const Excerpt = styled.p`
   line-height: 1.6;
 `
 
-const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
+const TagCard = ({ slug, heroImage, title, type, publishDate, body, ...props }) => {
   
+  const slugtype = props.internal.type === 'ContentfulMixtape' ? 'mixes' : 'news'
+
   return (
     <Post featured={props.featured}>
-      <Link to={`/news/${slug}/`}>
+      <Link to={`/${slugtype}/${slug}/`}>
         <Img fluid={heroImage.fluid} />
         <Title>{title}</Title>
         <Date>{publishDate}</Date>
@@ -72,4 +74,4 @@ const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
   )
 }
 
-export default Card
+export default TagCard
