@@ -1,9 +1,9 @@
 module.exports = {
-  siteTitle: 'DJ Zaki | Los Angeles & Southern California Wedding DJ, Birthday DJ, Corporate DJ',
+  siteTitle: 'DJ Zaki | DJ in Los Angeles for Weddings, Birthdays, Corporate parties',
   siteTitleAlt: 'Los Angeles Southern California DJ | Weddings DJ, Birthday DJ, Corporate DJ', // This allows an alternative site title for SEO schema.
   publisher: 'DJ Zaki', // Organization name used for SEO schema
   siteDescription:
-    'LA DJ Zaki is the best Los Angeles Wedding DJ in LA. Satisfaction is Guaranteed with this Los Angeles DJ service! DJ for Weddings, Birthdays, Anniversaries, Corporate Parties &amp; Events.',
+    'DJ Zaki is a Los Angeles Wedding DJ in LA. Satisfaction is guaranteed for Weddings, Birthdays, Anniversaries, Corporate Parties &amp; Events.',
   siteUrl: 'https://www.dj-zaki.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
   postsPerHomePage: 7, // Number of posts shown on the 1st page of of the index.js template (home page)
   postsPerPage: 6, // Number of posts shown on paginated pages
