@@ -1,5 +1,5 @@
 module.exports = {
-  siteTitle: 'DJ Zaki | DJ in Los Angeles for Weddings, Birthdays, Corporate parties',
+  siteTitle: 'DJ Zaki | Los Angeles DJ for Weddings, Birthdays, Corporate parties',
   siteTitleAlt: 'Los Angeles Southern California DJ | Weddings DJ, Birthday DJ, Corporate DJ', // This allows an alternative site title for SEO schema.
   publisher: 'DJ Zaki', // Organization name used for SEO schema
   siteDescription:
