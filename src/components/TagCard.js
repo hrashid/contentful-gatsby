@@ -61,7 +61,7 @@ const TagCard = ({ slug, heroImage, title, type, publishDate, body, ...props }) 
   return (
     <Post featured={props.featured}>
       <Link to={`/${slugtype}/${slug}/`}>
-        <Img fluid={heroImage.fluid} />
+        <Img fluid={heroImage.fluid} alt={heroImage.title}/>
         <Title>{title}</Title>
         <Date>{publishDate}</Date>
         <Excerpt

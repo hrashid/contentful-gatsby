@@ -59,7 +59,7 @@ const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
   return (
     <Post featured={props.featured}>
       <Link to={`/news/${slug}/`}>
-        <Img fluid={heroImage.fluid} />
+        <Img fluid={heroImage.fluid} alt={heroImage.title}/>
         <Title>{title}</Title>
         <Date>{publishDate}</Date>
         <Excerpt

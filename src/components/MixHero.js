@@ -55,6 +55,7 @@ const Hero = props => (
     <BgImg
       height={props.height}
       fluid={props.image.fluid}
+      alt={props.image.title}
     />
     <Title>{props.title}</Title>
   </Wrapper>

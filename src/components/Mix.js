@@ -58,7 +58,7 @@ const Mix = ({ slug, heroImage, title, publishDate, body, ...props }) => {
   return (
     <Post featured={props.featured}>
       <Link to={`/mixes/${slug}/`}>
-        <Img fluid={heroImage.fluid} />
+        <Img fluid={heroImage.fluid} alt={heroImage.title} />
         <Title>{title}</Title>
         <Date>{publishDate}</Date>
         <Excerpt
