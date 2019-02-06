@@ -22,7 +22,7 @@ const Index = ({ data, pageContext }) => {
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
 
-  console.log(homepagePost)
+  //console.log(homepagePost)
   return (
     <Layout>
       <SEO />

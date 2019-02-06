@@ -7,6 +7,7 @@ import Hero from '../components/Hero'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
+import PlayList from '../components/PlayList'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
@@ -27,6 +28,7 @@ const PostTemplate = ({ data, pageContext }) => {
     body,
     publishDate,
     tags,
+    playlist,
   } = data.contentfulPost
   const postNode = data.contentfulPost
 
@@ -46,6 +48,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <PostTitle>{title}</PostTitle>
         <PostDate date={publishDate} />
         <PageBody body={body} />
+        {playlist && <PlayList playlist={playlist} />}
         {tags && <TagList tags={tags} />}
       </Container>
       <PostLinks previous={previous} next={next} />
@@ -69,6 +72,11 @@ export const query = graphql`
         title
         id
         slug
+      }
+      playlist {
+        id
+        name
+        artist
       }
       heroImage {
         title
