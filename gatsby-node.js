@@ -217,6 +217,56 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  const loadSpotify = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulSpotifyPlaylist(
+          sort: { fields: [publishDate], order: DESC }
+          limit: 10000
+        ) {
+          edges {
+            node {
+              slug
+              publishDate
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const posts = result.data.allContentfulSpotifyPlaylist.edges
+      const postsPerFirstPage = config.postsPerHomePage
+      const postsPerPage = config.postsPerPage
+      const numPages = Math.ceil(
+        posts.slice(postsPerFirstPage).length / postsPerPage
+      )
+
+      // Create main Mix page
+      createPage({
+        path: `/playlists`,
+        component: path.resolve(`./src/templates/spotify.js`),
+        context: {
+          limit: 1000,
+        },
+      })
+
+      // Create each individual post
+      posts.forEach((edge, i) => {
+        const prev = i === 0 ? null : posts[i - 1].node
+        const next = i === posts.length - 1 ? null : posts[i + 1].node
+        createPage({
+          path: `/playlists/${edge.node.slug}/`,
+          component: path.resolve(`./src/templates/spotifyplaylist.js`),
+          context: {
+            slug: edge.node.slug,
+            prev,
+            next,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -295,5 +345,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages, loadMixes, loadFaqs])
+  return Promise.all([loadPosts, loadTags, loadPages, loadMixes, loadFaqs, loadSpotify])
 }

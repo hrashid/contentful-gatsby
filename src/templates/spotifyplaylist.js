@@ -7,20 +7,20 @@ import Hero from '../components/Hero'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
-import PlayList from '../components/PlayList'
+import SpotifyEmbed from '../components/SpotifyEmbed'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
-import SEO from '../components/SEO'
 import styled from 'styled-components'
+import SEO from '../components/SEO'
 
-const PostTitle = styled.h1`
+const Ques = styled.div`
   margin: 0 auto 30px;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   font-size:1.5em;
   font-weight:600;
 `
 
-const PostTemplate = ({ data, pageContext }) => {
+const SpotifyTemplate = ({ data, pageContext }) => {
   const {
     title,
     slug,
@@ -28,9 +28,10 @@ const PostTemplate = ({ data, pageContext }) => {
     body,
     publishDate,
     tags,
-    playlist,
-  } = data.contentfulPost
-  const postNode = data.contentfulPost
+    contentfulid,
+    imageField,
+  } = data.contentfulSpotifyPlaylist
+  const postNode = data.contentfulSpotifyPlaylist
 
   const previous = pageContext.prev
   const next = pageContext.next
@@ -42,14 +43,10 @@ const PostTemplate = ({ data, pageContext }) => {
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} postSEO />
 
-      <Hero image={heroImage} height={'50vh'} />
-
       <Container>
-        <PostTitle>{title}</PostTitle>
-        <PostDate date={publishDate} />
+        <Ques>{title}</Ques>
+        <SpotifyEmbed contentfulid={contentfulid}/>
         <PageBody body={body} />
-        {playlist && <PlayList playlist={playlist} />}
-        {tags && <TagList tags={tags} />}
       </Container>
     </Layout>
   )
@@ -57,26 +54,16 @@ const PostTemplate = ({ data, pageContext }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    contentfulPost(slug: { eq: $slug }) {
+    contentfulSpotifyPlaylist(slug: { eq: $slug }) {
       title
       slug
+      contentfulid
       metaDescription {
         internal {
           content
         }
       }
-      publishDate(formatString: "MMMM DD, YYYY")
-      publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      tags {
-        title
-        id
-        slug
-      }
-      playlist {
-        id
-        name
-        artist
-      }
+      imageField
       heroImage {
         title
         fluid(maxWidth: 1800) {
@@ -91,11 +78,10 @@ export const query = graphql`
       body {
         childMarkdownRemark {
           html
-          excerpt(pruneLength: 320)
         }
       }
     }
   }
 `
 
-export default PostTemplate
+export default SpotifyTemplate

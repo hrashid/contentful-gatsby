@@ -77,6 +77,11 @@ const Menu = () => {
               News
             </Link>
           </li>
+          <li>
+            <Link to="/playlists" activeStyle={activeLinkStyle}>
+              Playlists
+            </Link>
+          </li>
 
           <li>
             <Link to="/faq" activeStyle={activeLinkStyle}>
