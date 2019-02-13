@@ -13,7 +13,7 @@ import PostDate from '../components/PostDate'
 import styled from 'styled-components'
 import SEO from '../components/SEO'
 
-const Ques = styled.div`
+const Ques = styled.h1`
   margin: 0 auto 30px;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   font-size:1.5em;

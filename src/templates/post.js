@@ -13,7 +13,7 @@ import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 import styled from 'styled-components'
 
-const PostTitle = styled.h1`
+const PostTitle = styled.div`
   margin: 0 auto 30px;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   font-size:1.5em;
@@ -42,7 +42,7 @@ const PostTemplate = ({ data, pageContext }) => {
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} postSEO />
 
-      <Hero image={heroImage} height={'50vh'} />
+      <Hero  title={`${title}`} image={heroImage} height={'50vh'} />
 
       <Container>
         <PostTitle>{title}</PostTitle>

@@ -14,7 +14,7 @@ import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 import styled from 'styled-components'
 
-const MixTitle = styled.h1`
+const MixTitle = styled.div`
   margin: 0 auto 30px;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   font-size:1.5em;
@@ -43,7 +43,7 @@ const MixTemplate = ({ data, pageContext }) => {
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} postSEO />
-      <MixHero image={heroImage} height={'20vh'} />
+      <MixHero  title={`${title}`} image={heroImage} height={'20vh'} />
       <Container>
         <MixTitle>{title}</MixTitle>
 
