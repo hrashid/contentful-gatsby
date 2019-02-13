@@ -45,8 +45,8 @@ const SpotifyTemplate = ({ data, pageContext }) => {
 
       <Container>
         <Ques>{title}</Ques>
-        <SpotifyEmbed contentfulid={contentfulid}/>
         <PageBody body={body} />
+        <SpotifyEmbed contentfulid={contentfulid}/>
       </Container>
     </Layout>
   )

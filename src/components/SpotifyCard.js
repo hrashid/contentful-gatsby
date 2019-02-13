@@ -30,6 +30,17 @@ const Post = styled.div`
   }
 `
 
+const Left = styled.div`
+  flex: '0 0 30%';
+  img{
+    max-width:150px;
+  }
+`
+
+const Right = styled.div`
+  flex: '0 0 70%';
+`
+
 const Title = styled.h2`
   font-size: 1.5em;
   font-weight: 600;
@@ -37,7 +48,7 @@ const Title = styled.h2`
   margin: 1rem 1rem 0.5rem 1rem;
 `
 
-const Excerpt = styled.p`
+const Body = styled.p`
   margin: 0 1rem 1rem 1rem;
   line-height: 1.6;
 `
@@ -46,8 +57,11 @@ const SpotifyCard = ({ slug, title, body, imageField, ...props }) => {
   return (
     <Post featured={props.featured}>
       <Link to={`/playlists/${slug}/`}>
-        <Title>{title}</Title>
-        <img src={imageField} width="100" height="100"/>
+        <Left><img src={imageField} width="100px" height="100px"/></Left>
+        <Right>
+          <Title>{title}</Title>
+          <Body></Body>
+        </Right>
       </Link>
     </Post>
   )

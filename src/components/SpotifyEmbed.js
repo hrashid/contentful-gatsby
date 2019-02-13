@@ -8,7 +8,7 @@ const SpotifyFrame = styled.div`
 const SpotifyEmbed = ({ contentfulid, ...props }) => {
   return (
     <SpotifyFrame>
-      <iframe src={"https://open.spotify.com/embed/user/harrisrashid/playlist/" + contentfulid + ""} width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <iframe src={"https://open.spotify.com/embed/user/harrisrashid/playlist/" + contentfulid + ""} width="100%" height="580" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </SpotifyFrame>        
   )
 }
