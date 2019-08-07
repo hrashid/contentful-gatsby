@@ -8,7 +8,7 @@ import Helmet from 'react-helmet'
 import PageBody from '../components/PageBody'
 import Container from '../components/Container'
 import GoogleMap from '../components/GoogleMap'
-import Pagination from '../components/Pagination'
+import NewsPagination from '../components/NewsPagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 
@@ -49,7 +49,7 @@ const News = ({ data, pageContext }) => {
           </CardList>
         )}
       </Container>
-      <Pagination context={pageContext} />
+      <NewsPagination context={pageContext} />
     </Layout>
   )
 }

@@ -45,7 +45,7 @@ const PageIndicator = styled.span`
   opacity: 0.7;
 `
 
-class Pagination extends React.Component {
+class NewsPagination extends React.Component {
   render() {
     const { numPages, currentPage, slug, type } = this.props.context
     const postType = type
@@ -56,12 +56,8 @@ class Pagination extends React.Component {
     const prevPageNum = currentPage - 1 === 1 ? `` : currentPage - 1
     const nextPageNum = currentPage + 1
 
-    //const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : `${postType}`
-    
-    const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : `/mixes/`
-    
-    const prevPageLink = isFirst ? null : `${pathPrefix}/${prevPageNum}/`
-    const nextPageLink = isLast ? null : `${pathPrefix}/${nextPageNum}/`
+    const prevPageLink = isFirst ? null : `news/${prevPageNum}/`
+    const nextPageLink = isLast ? null : `news/${nextPageNum}/`
 
     return (
       <Wrapper>
@@ -79,4 +75,4 @@ class Pagination extends React.Component {
   }
 }
 
-export default Pagination
+export default NewsPagination

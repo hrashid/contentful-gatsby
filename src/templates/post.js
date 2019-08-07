@@ -8,7 +8,7 @@ import Container from '../components/Container'
 import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PlayList from '../components/PlayList'
-import PostLinks from '../components/PostLinks'
+import NewsPostLinks from '../components/NewsPostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 import styled from 'styled-components'
@@ -50,6 +50,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <PageBody body={body} />
         {playlist && <PlayList playlist={playlist} />}
         {tags && <TagList tags={tags} />}
+        <NewsPostLinks previous={previous} next={next} />
       </Container>
     </Layout>
   )

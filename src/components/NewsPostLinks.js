@@ -36,21 +36,21 @@ const NextLink = styled(Link)`
   order: 2;
 `
 
-const PostLinks = props => {
+const NewsPostLinks = props => {
   return (
     <Wrapper>
       <Box>
         {props.previous && (
-          <PreviousLink to={`/mixes/${props.previous.slug}/`}>
-            &#8592; Prev Mix
+          <PreviousLink to={`/news/${props.previous.slug}/`}>
+            &#8592; Prev Post
           </PreviousLink>
         )}
         {props.next && (
-          <NextLink to={`/mixes/${props.next.slug}/`}>Next Mix &#8594;</NextLink>
+          <NextLink to={`/news/${props.next.slug}/`}>Next Post &#8594;</NextLink>
         )}
       </Box>
     </Wrapper>
   )
 }
 
-export default PostLinks
+export default NewsPostLinks
