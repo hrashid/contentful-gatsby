@@ -15,6 +15,9 @@ const VidWrapper = styled.div`
 `
 
 const Video = styled.video`
+@media (max-width: ${props => props.theme.responsive.small}) {
+  display:none;
+}
 `
 
 
@@ -28,6 +31,7 @@ const BgImg = styled(Img)`
   height: auto;
   @media (min-width: ${props => props.theme.responsive.small}) {
     height: ${props => props.height || 'auto'};
+    display:none;
   }
   & > img {
     object-fit: ${props => props.fit || 'cover'} !important;
@@ -68,7 +72,11 @@ const HomeHero = props => (
       <Video Controls autoPlay loop muted width="100%">
         <source src={Vide} type="video/mp4" />
       </Video>
-      
+      <BgImg
+        height={props.height}
+        fluid={props.image.fluid}
+        alt={props.image.title}
+      />
       <Title>{props.title}</Title>
 
     </VidWrapper>

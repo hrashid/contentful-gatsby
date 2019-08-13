@@ -31,7 +31,7 @@ const Index = ({ data, pageContext }) => {
             <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
           </Helmet>
         )}
-      <HomeHero title="Dj Zaki." height={'75vh'} />    
+      <HomeHero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />    
       <Container>
         <PageBody body={homepagePost.body} />
         <CardList>
