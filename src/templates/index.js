@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Mix from '../components/Mix'
-import HomeHero from '../components/HomeHero'
+import Hero from '../components/Hero'
 import Helmet from 'react-helmet'
 import PageBody from '../components/PageBody'
 import Container from '../components/Container'
@@ -31,7 +31,7 @@ const Index = ({ data, pageContext }) => {
             <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
           </Helmet>
         )}
-      <HomeHero title="Dj Zaki" image={homepagePost.images[0]} height={'75vh'} />    
+      <Hero title="Dj Zaki." image={homepagePost.images[0]} height={'75vh'} />    
       <Container>
         <PageBody body={homepagePost.body} />
         <CardList>
