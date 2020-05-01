@@ -54,14 +54,14 @@ const Footer = () => (
           Sitemap
         </a>{' | '}
         <a
-          href="https://twitter.com/dj__zaki"
+          href="https://twitter.com/_djzaki"
           target="_blank"
           rel="noopener noreferrer"
         >
           Twitter
         </a>{' | '}
         <a
-          href="https://instagram.com/d.j.zaki"
+          href="https://instagram.com/_djzaki"
           target="_blank"
           rel="noopener noreferrer"
         >
