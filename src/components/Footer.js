@@ -45,7 +45,7 @@ const Footer = () => (
   <Wrapper>
     <List>
       <Item>
-        Copyright © 2019 DJ Zaki{' '}
+        Copyright © 2020 DJ Zaki{' '}
       </Item>
       <Item>
         <a
