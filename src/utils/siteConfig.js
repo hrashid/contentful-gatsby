@@ -9,7 +9,7 @@ module.exports = {
   postsPerPage: 6, // Number of posts shown on paginated pages
   author: 'DJ Zaki', // Author for RSS author segment and SEO schema
   authorUrl: 'https://www.dj-zaki.com/los-angeles-dj/', // URL used for author and publisher schema, can be a social profile or other personal site
-  userTwitter: '@dj__zaki', // Change for Twitter Cards
+  userTwitter: '@_djzaki', // Change for Twitter Cards
   shortTitle: 'DJ Zaki', // Used for App manifest e.g. Mobile Home Screen
   shareImage: '/logos/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
   shareImageWidth: 900, // Change to the width of your default share image
@@ -17,5 +17,5 @@ module.exports = {
   siteLogo: '/logos/logo-512.png', // Logo used for SEO, RSS, and App manifest
   backgroundColor: '#FFF', // Used for Offline Manifest
   themeColor: '#FF0000', // Used for Offline Manifest
-  copyright: 'Copyright © 2019 DJ Zaki', // Copyright string for the RSS feed
+  copyright: 'Copyright © 2020 DJ Zaki', // Copyright string for the RSS feed
 }
