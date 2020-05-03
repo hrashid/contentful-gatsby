@@ -40,6 +40,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [require("tailwindcss")],
+      }
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: config.siteUrl,

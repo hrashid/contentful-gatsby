@@ -34,6 +34,7 @@ const Index = ({ data, pageContext }) => {
       <Hero title="Dj Zaki." image={homepagePost.images[0]} height={'75vh'} />    
       <Container>
         <PageBody body={homepagePost.body} />
+        
         <CardList>
             {posts.map(({ node: post }) => (
               <Mix key={post.id} {...post} />

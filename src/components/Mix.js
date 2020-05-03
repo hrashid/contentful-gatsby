@@ -56,10 +56,11 @@ const Excerpt = styled.p`
 
 const Mix = ({ slug, heroImage, title, publishDate, body, ...props }) => {
   return (
-    <Post featured={props.featured}>
+    
+    <div featured={props.featured} className="flex w-1/3 h-80 px-4 py-4 border-solid border-2 border-gray-300 rounded-lg">
       <Link to={`/mixes/${slug}/`}>
         <Img fluid={heroImage.fluid} alt={heroImage.title} />
-        <Title>{title}</Title>
+        <div>{title}</div>
         <Date>{publishDate}</Date>
         <Excerpt
           dangerouslySetInnerHTML={{
@@ -67,7 +68,7 @@ const Mix = ({ slug, heroImage, title, publishDate, body, ...props }) => {
           }}
         />
       </Link>
-    </Post>
+    </div>
   )
 }
 
